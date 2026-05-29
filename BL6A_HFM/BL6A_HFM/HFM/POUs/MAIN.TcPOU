@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="MAIN" Id="{5d45551b-d7f5-4e07-ade6-972288885ab5}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	// M1 - HFM Y1
+	// M2 - HFM Y2
+	// M3 - HFM Y3
+	// M4 - HFM X1: RING + / HALL-
+	// M5 - HFM X2: RING + / HALL-
+
+	// M6 - FM Y1
+	// M7 - FM Y2
+	// M8 - FM Y3
+	// M9 - FM X1: RING + / HALL-
+	// M10 - FM X2: RING + / HALL-	
+    
+	// M1: ST_MotionStage := (fVelocity:=1.0, nEnableMode:=ENUM_StageEnableMode.DURING_MOTION, bPowerSelf:=TRUE, nHomingMode:=ENUM_EpicsHomeCmd.ABSOLUTE_SET);
+	M1: ST_MotionStage := (fVelocity:=1.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE, nHomingMode:=ENUM_EpicsHomeCmd.ABSOLUTE_SET);
+	fbMotion1: FB_MotionStage;
+	bM1plusLimit AT %I*: BOOL;
+	bM1minusLimit AT %I*: BOOL;	
+	
+	M2: ST_MotionStage := (fVelocity:=1.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE, nHomingMode:=ENUM_EpicsHomeCmd.ABSOLUTE_SET);
+	fbMotion2: FB_MotionStage;
+	bM2plusLimit AT %I*: BOOL;
+	bM2minusLimit AT %I*: BOOL;	
+	
+	M3: ST_MotionStage := (fVelocity:=1.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE, nHomingMode:=ENUM_EpicsHomeCmd.ABSOLUTE_SET);
+	fbMotion3: FB_MotionStage;
+	bM3plusLimit AT %I*: BOOL;
+	bM3minusLimit AT %I*: BOOL;	
+	
+	M4: ST_MotionStage := (fVelocity:=1.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE, nHomingMode:=ENUM_EpicsHomeCmd.ABSOLUTE_SET);
+	fbMotion4: FB_MotionStage;
+	bM4plusLimit AT %I*: BOOL;
+	bM4minusLimit AT %I*: BOOL;	
+	
+	M5: ST_MotionStage := (fVelocity:=1.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE, nHomingMode:=ENUM_EpicsHomeCmd.ABSOLUTE_SET);
+	fbMotion5: FB_MotionStage;
+	bM5plusLimit AT %I*: BOOL;
+	bM5minusLimit AT %I*: BOOL;	
+	
+	M6: ST_MotionStage := (fVelocity:=1.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE, nHomingMode:=ENUM_EpicsHomeCmd.ABSOLUTE_SET);
+	fbMotion6: FB_MotionStage;
+	bM6plusLimit AT %I*: BOOL;
+	bM6minusLimit AT %I*: BOOL;	
+	
+	M7: ST_MotionStage := (fVelocity:=1.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE, nHomingMode:=ENUM_EpicsHomeCmd.ABSOLUTE_SET);
+	fbMotion7: FB_MotionStage;
+	bM7plusLimit AT %I*: BOOL;
+	bM7minusLimit AT %I*: BOOL;	
+	
+	M8: ST_MotionStage := (fVelocity:=1.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE, nHomingMode:=ENUM_EpicsHomeCmd.ABSOLUTE_SET);
+	fbMotion8: FB_MotionStage;
+	bM8plusLimit AT %I*: BOOL;
+	bM8minusLimit AT %I*: BOOL;	
+	
+	M9: ST_MotionStage := (fVelocity:=1.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE, nHomingMode:=ENUM_EpicsHomeCmd.ABSOLUTE_SET);
+	fbMotion9: FB_MotionStage;
+	bM9plusLimit AT %I*: BOOL;
+	bM9minusLimit AT %I*: BOOL;	
+	
+	M10: ST_MotionStage := (fVelocity:=1.0, nEnableMode:=ENUM_StageEnableMode.ALWAYS, bPowerSelf:=TRUE, nHomingMode:=ENUM_EpicsHomeCmd.ABSOLUTE_SET);
+	fbMotion10: FB_MotionStage;
+	bM10plusLimit AT %I*: BOOL;
+	bM10minusLimit AT %I*: BOOL;	
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+fbMotion1(stMotionStage := M1);
+M1.bError := FALSE;
+M1.bHardwareEnable := TRUE;
+M1.bPowerSelf := TRUE;
+M1.bLimitForwardEnable := bM1plusLimit;
+M1.bLimitBackwardEnable := bM1minusLimit;
+
+fbMotion2(stMotionStage := M2);
+M2.bError := FALSE;
+M2.bHardwareEnable := TRUE;
+M2.bPowerSelf := TRUE;
+M2.bLimitForwardEnable := bM2plusLimit;
+M2.bLimitBackwardEnable := bM2minusLimit;
+
+fbMotion3(stMotionStage := M3);
+M3.bError := FALSE;
+M3.bHardwareEnable := TRUE;
+M3.bPowerSelf := TRUE;
+M3.bLimitForwardEnable := bM3plusLimit;
+M3.bLimitBackwardEnable := bM3minusLimit;
+
+fbMotion4(stMotionStage := M4);
+M4.bError := FALSE;
+M4.bHardwareEnable := TRUE;
+M4.bPowerSelf := TRUE;
+M4.bLimitForwardEnable := bM4plusLimit;
+M4.bLimitBackwardEnable := bM4minusLimit;
+
+fbMotion5(stMotionStage := M5);
+M5.bError := FALSE;
+M5.bHardwareEnable := TRUE;
+M5.bPowerSelf := TRUE;
+M5.bLimitForwardEnable := bM5plusLimit;
+M5.bLimitBackwardEnable := bM5minusLimit;
+
+fbMotion6(stMotionStage := M6);
+M6.bError := FALSE;
+M6.bHardwareEnable := TRUE;
+M6.bPowerSelf := TRUE;
+M6.bLimitForwardEnable := bM6plusLimit;
+M6.bLimitBackwardEnable := bM6minusLimit;
+
+fbMotion7(stMotionStage := M7);
+M7.bError := FALSE;
+M7.bHardwareEnable := TRUE;
+M7.bPowerSelf := TRUE;
+M7.bLimitForwardEnable := bM7plusLimit;
+M7.bLimitBackwardEnable := bM7minusLimit;
+
+fbMotion8(stMotionStage := M8);
+M8.bError := FALSE;
+M8.bHardwareEnable := TRUE;
+M8.bPowerSelf := TRUE;
+M8.bLimitForwardEnable := bM8plusLimit;
+M8.bLimitBackwardEnable := bM8minusLimit;
+
+fbMotion9(stMotionStage := M9);
+M9.bError := FALSE;
+M9.bHardwareEnable := TRUE;
+M9.bPowerSelf := TRUE;
+M9.bLimitForwardEnable := bM9plusLimit;
+M9.bLimitBackwardEnable := bM9minusLimit;
+
+fbMotion10(stMotionStage := M10);
+M10.bError := FALSE;
+M10.bHardwareEnable := TRUE;
+M10.bPowerSelf := TRUE;
+M10.bLimitForwardEnable := bM10plusLimit;
+M10.bLimitBackwardEnable := bM10minusLimit;]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="17" Count="1" />
+      <LineId Id="11" Count="3" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="21" Count="5" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="30" Count="4" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="36" Count="5" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="43" Count="5" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="50" Count="0" />
+      <LineId Id="117" Count="32" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

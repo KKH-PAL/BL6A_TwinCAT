@@ -1,0 +1,695 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass">
+  <Vendor>
+    <Name>Beckhoff Automation GmbH</Name>
+    <ImageData>424DE6000000000000007600000028000000100000000E000000010004000000000070000000120B0000120B0000100000001000000000000000000080000080000000808000800000008000800080800000C0C0C000808080000000FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF009D9DD99DD9DDD9DD9D9D9DD9D9DDD9DD999D9DD9D999D9999D9D9DD9D9DDD9DD9D9DD99DD999D999DDDDDDDDDDDDDDDD88888888888888888888888888888888DDDDDDDDDDDDDDDD999D999DD99DD9D99D9D9DDD9DD9D9D999DD999D9DDDD99D9D9D9DDD9DD9D99D999D999DD99DD9D9</ImageData>
+  </Vendor>
+  <Groups>
+    <Group SortOrder="500">
+      <Name>NcObj</Name>
+      <DisplayName>NC Objects</DisplayName>
+      <ImageData>424D360300000000000036000000280000001000000010000000010018000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFBFBFBEEEEEEFDFDFDFDFDFDFDFDFDFCFCFCEAEAEAFDFDFDEDEDEDEBEBEBF8F8F8FDFDFDF3F3F3E4E3E4ED7166FBFBFB0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0EED7166ED7166ED71660E0E0E0E0E0E0E0E0EFFFFFFFFFFFFFFFFFFFFFFFFFEFEFEFAFAFAFFFFFFFAFAFAF5F1F0ED7166FAF3F1FFFFFFFFFFFFFFFFFFFFFFFF0E0E0EFFFFFFFFFFFFFFFFFFFFFFFFFEFEFEFAFAFAFFFFFFED7166ED7166FEFEFEFEFEFEFDFEFDFFFFFFFFFFFFFFFFFF0E0E0EFFFFFFFFFFFFFFFFFFFFFFFFFEFEFEFAFAFAF9F3F1ED7166F7F7F7F8FCF9E3F2E4F6FBF7FFFFFFFFFFFFFEFEFE0E0E0EF8F8F8F8F8F8F8F8F8F8F8F8F8F8F8F1EFEEED7166F3F4F4E2ECE4D9EBDBF7F7F7F6F6F6F7F7F7F7F7F71C12DA0E0E0EED7166ED7166ED7166ED7166ED7166ED7166F4F9F5DBECDCDFE7E0DDDDDDDEDEDEE5E5E5E4E4ED1C12DAF9F9FC0E0E0EECECECE0E0E0DBDBDC1C12DA1C12DA1C12DA1C12DAF9F9F9FEFEFEFBFBFBFAFAFA1C12DA1C12DAF7F7F6FFFFFF0E0E0EFEFEFE1C12DA1C12DAE0F1E2F9F9F9F9F9F9FBFBFD1C12DA1C12DA1C12DA1C12DAF7F7F8E7E7E70E0E0EFFFFFF0E0E0E1C12DAD1E3DEF2F9F3FEFEFEFAFAFAFAFAFAFFFFFFFAFAFAFEFEFEFEFEFEE7E7E70E0E0EFEFEFEFFFFFFFFFFFF0E0E0EE2F3E5FEFEFEFFFFFFFEFEFEFAFAFAFAFAFAFFFFFFFAFAFAF6F6F60E0E0EF8F8F8FEFEFEFEFEFEFEFEFEFEFEFE0E0E0EFEFEFEFEFEFEFEFEFEFEFEFEFAFAFAFAFAFAFEFEFE0E0E0EF2F2F2FEFEFEFAFAFADEE6E0CEDCCFCCD9CED5E2D70E0E0EEEEEEE0E0E0EEFEFEF0E0E0EEBEBEB0E0E0EE7E7E7FAFAFAFEFEFEFEFEFEFAFAFAEBE2EAED7166ED7166E2DEEE0E0E0EFEFEFEFFFFFFFFFFFFFAFAFAEFEFEFE9E9E9FEFEFEF1F1F1F9F9F9FEFEFEE7E7E7FEFDFDFEFEFDFEFEFDFEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF</ImageData>
+    </Group>
+  </Groups>
+  <Modules>
+    <Module GUID="{05090001-0000-0000-f000-000000000064}" Group="NcObj">
+      <Name>Drive Diagnostics (BodePlot)</Name>
+      <CLSID ClassFactory="TcNcObjects">{05090001-0000-0000-f000-000000000064}</CLSID>
+      <Info />
+      <InitSequence>P</InitSequence>
+      <Contexts>
+        <Context>
+          <Id>0</Id>
+        </Context>
+      </Contexts>
+      <Interfaces>
+        <Interface>
+          <ITCID>#x03000010</ITCID>
+          <Type>ITcCyclic</Type>
+        </Interface>
+        <Interface>
+          <ITCID>#x03000012</ITCID>
+          <Type>ITcADI</Type>
+        </Interface>
+      </Interfaces>
+      <Parameters>
+        <Parameter HideParameter="false">
+          <Name>Axis</Name>
+          <BaseType>OTCID</BaseType>
+          <PTCID>#x05090010</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>DynContainer</Name>
+          <BaseType>OTCID</BaseType>
+          <PTCID>#x05090020</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>TraceLevel</Name>
+          <Comment>Controls the amount of log messages.</Comment>
+          <BaseType GUID="{8007ae3b-86bb-40f2-b385-ef87fcc239a4}">TcTraceLevel</BaseType>
+          <Default>
+            <Value>#x4</Value>
+          </Default>
+          <PTCID>#x03002103</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>BodePlotMode</Name>
+          <Comment />
+          <BaseType>DINT</BaseType>
+          <EnumInfo>
+            <Text><![CDATA[Invalid / Data monitoring only]]></Text>
+            <Enum>0</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[Torque]]></Text>
+            <Enum>17</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[Velocity1]]></Text>
+            <Enum>18</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[Velocity2]]></Text>
+            <Enum>19</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[Position1]]></Text>
+            <Enum>20</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[Position2]]></Text>
+            <Enum>21</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[Velocity1 with act torque]]></Text>
+            <Enum>22</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[Velocity2 with act torque]]></Text>
+            <Enum>23</Enum>
+          </EnumInfo>
+          <Default>
+            <Value>0</Value>
+          </Default>
+          <PTCID>#x05090031</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>SignalGeneratorType</Name>
+          <Comment />
+          <BaseType>DINT</BaseType>
+          <EnumInfo>
+            <Text><![CDATA[Invalid]]></Text>
+            <Enum>0</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[Sinus]]></Text>
+            <Enum>1</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[External]]></Text>
+            <Enum>2</Enum>
+          </EnumInfo>
+          <Default>
+            <Value>1</Value>
+          </Default>
+          <PTCID>#x05090030</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>OversamplingFactor</Name>
+          <Comment />
+          <BaseType>UDINT</BaseType>
+          <EnumInfo>
+            <Text><![CDATA[Invalid]]></Text>
+            <Enum>0</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[x1]]></Text>
+            <Enum>1</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[x2]]></Text>
+            <Enum>2</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[x4]]></Text>
+            <Enum>4</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[x8]]></Text>
+            <Enum>8</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[x16]]></Text>
+            <Enum>16</Enum>
+          </EnumInfo>
+          <Default>
+            <Value>16</Value>
+          </Default>
+          <PTCID>#x05090032</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>PositionMonitoringWindow</Name>
+          <Comment />
+          <BaseType>LREAL</BaseType>
+          <Unit TxtId="1033"><![CDATA[mm]]></Unit>
+          <Default>
+            <Value>10.0</Value>
+          </Default>
+          <PTCID>#x05090033</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>CheckDriveLimitations</Name>
+          <Comment />
+          <BaseType>BOOL32</BaseType>
+          <Default>
+            <Value>1</Value>
+          </Default>
+          <PTCID>#x05090035</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>BaseAmplitudePos</Name>
+          <Comment />
+          <BaseType>LREAL</BaseType>
+          <Unit TxtId="1033"><![CDATA[mm]]></Unit>
+          <Default>
+            <Value>10.0</Value>
+          </Default>
+          <PTCID>#x05090050</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>BaseAmplitudeVelo</Name>
+          <Comment />
+          <BaseType>LREAL</BaseType>
+          <Unit TxtId="1033"><![CDATA[mm/s]]></Unit>
+          <Default>
+            <Value>10.0</Value>
+          </Default>
+          <PTCID>#x05090051</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>StartFrequency</Name>
+          <Comment />
+          <BaseType>LREAL</BaseType>
+          <Unit TxtId="1033"><![CDATA[Hz]]></Unit>
+          <Default>
+            <Value>1.0</Value>
+          </Default>
+          <PTCID>#x05090052</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>StopFrequency</Name>
+          <Comment />
+          <BaseType>LREAL</BaseType>
+          <Unit TxtId="1033"><![CDATA[Hz]]></Unit>
+          <Default>
+            <Value>500.0</Value>
+          </Default>
+          <PTCID>#x05090053</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>StepCount</Name>
+          <Comment />
+          <BaseType>UDINT</BaseType>
+          <Default>
+            <Value>20</Value>
+          </Default>
+          <PTCID>#x05090054</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>SignalAmplitudePos</Name>
+          <Comment />
+          <BaseType>LREAL</BaseType>
+          <Unit TxtId="1033"><![CDATA[mm]]></Unit>
+          <Default>
+            <Value>10.0</Value>
+          </Default>
+          <PTCID>#x05090055</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>SignalAmplitudeVelo</Name>
+          <Comment />
+          <BaseType>LREAL</BaseType>
+          <Unit TxtId="1033"><![CDATA[mm/s]]></Unit>
+          <Default>
+            <Value>50.0</Value>
+          </Default>
+          <PTCID>#x05090056</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>SignalAmplitudeTorque</Name>
+          <Comment />
+          <BaseType>LREAL</BaseType>
+          <Unit TxtId="1033"><![CDATA[%]]></Unit>
+          <Default>
+            <Value>10.0</Value>
+          </Default>
+          <PTCID>#x05090058</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>MaxNoiseDetectionTime</Name>
+          <Comment />
+          <BaseType>LREAL</BaseType>
+          <Unit TxtId="1033"><![CDATA[s]]></Unit>
+          <Default>
+            <Value>1.5</Value>
+          </Default>
+          <PTCID>#x05090059</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>AmplitudeOffsetTorque</Name>
+          <Comment />
+          <BaseType>LREAL</BaseType>
+          <Unit TxtId="1033"><![CDATA[%]]></Unit>
+          <Default>
+            <Value>0.0</Value>
+          </Default>
+          <PTCID>#x0509005A</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>SignalAmplitudeScalingMode</Name>
+          <Comment />
+          <BaseType>UDINT</BaseType>
+          <EnumInfo>
+            <Text><![CDATA[~1/f (default)]]></Text>
+            <Enum>0</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[CONST]]></Text>
+            <Enum>1</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[1/5 at 1000Hz]]></Text>
+            <Enum>2</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[1/10 at 1000Hz]]></Text>
+            <Enum>3</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[1/25 at 1000Hz]]></Text>
+            <Enum>4</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[1/50 at 1000Hz]]></Text>
+            <Enum>5</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[1/100 at 1000Hz]]></Text>
+            <Enum>6</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[1/250 at 1000Hz]]></Text>
+            <Enum>7</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[AUTOSCALE_LOW]]></Text>
+            <Enum>8</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[AUTOSCALE_MEDIUM]]></Text>
+            <Enum>9</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[AUTOSCALE_HIGH]]></Text>
+            <Enum>10</Enum>
+          </EnumInfo>
+          <Default>
+            <Value>0</Value>
+          </Default>
+          <PTCID>#x05090057</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>BaseFrequency</Name>
+          <Comment />
+          <BaseType>LREAL</BaseType>
+          <Unit TxtId="1033"><![CDATA[Hz]]></Unit>
+          <Default>
+            <Value>0.9765625</Value>
+          </Default>
+          <PTCID>#x0509005D</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>StepDuration</Name>
+          <Comment />
+          <BaseType>LREAL</BaseType>
+          <Unit TxtId="1033"><![CDATA[s]]></Unit>
+          <Default>
+            <Value>2.048</Value>
+          </Default>
+          <PTCID>#x0509005E</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>SimulationMode</Name>
+          <Comment />
+          <BaseType>UDINT</BaseType>
+          <EnumInfo>
+            <Text><![CDATA[OFF]]></Text>
+            <Enum>0</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[OPEN_LOOP (PI, P-T2-Tt with noise)]]></Text>
+            <Enum>1</Enum>
+          </EnumInfo>
+          <EnumInfo>
+            <Text><![CDATA[CLOSED LOOP (PI, P-T2-Tt, NOISE)]]></Text>
+            <Enum>2</Enum>
+          </EnumInfo>
+          <Default>
+            <Value>0</Value>
+          </Default>
+          <PTCID>#x050900F0</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>SimulationMode Kp</Name>
+          <Comment />
+          <BaseType>LREAL</BaseType>
+          <Unit TxtId="1033"><![CDATA[]]></Unit>
+          <Default>
+            <Value>0.5</Value>
+          </Default>
+          <PTCID>#x050900F1</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>SimulationMode T1</Name>
+          <Comment />
+          <BaseType>LREAL</BaseType>
+          <Unit TxtId="1033"><![CDATA[s]]></Unit>
+          <Default>
+            <Value>0.250</Value>
+          </Default>
+          <PTCID>#x050900F2</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>SimulationMode T2</Name>
+          <Comment />
+          <BaseType>LREAL</BaseType>
+          <Unit TxtId="1033"><![CDATA[s]]></Unit>
+          <Default>
+            <Value>0</Value>
+          </Default>
+          <PTCID>#x050900F3</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>SimulationMode Tt</Name>
+          <Comment>optional deadtime Tt (default: 0)</Comment>
+          <BaseType>LREAL</BaseType>
+          <Unit TxtId="1033"><![CDATA[s]]></Unit>
+          <Default>
+            <Value>0.0</Value>
+          </Default>
+          <PTCID>#x050900F4</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>SimulationMode Ctrl Kp</Name>
+          <Comment>kp controller (default: 1.0)</Comment>
+          <BaseType>LREAL</BaseType>
+          <Unit TxtId="1033"><![CDATA[]]></Unit>
+          <Default>
+            <Value>1.0</Value>
+          </Default>
+          <PTCID>#x050900FA</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>SimulationMode Ctrl Tn</Name>
+          <Comment>Tn controller (default: 0.0)</Comment>
+          <BaseType>LREAL</BaseType>
+          <Unit TxtId="1033"><![CDATA[s]]></Unit>
+          <Default>
+            <Value>0.0</Value>
+          </Default>
+          <PTCID>#x050900FB</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+        <Parameter HideParameter="false">
+          <Name>SimulationMode Noise Scaling</Name>
+          <Comment>scaling for noise component (default: 0)</Comment>
+          <BaseType>LREAL</BaseType>
+          <Unit TxtId="1033"><![CDATA[]]></Unit>
+          <Default>
+            <Value>0.0</Value>
+          </Default>
+          <PTCID>#x050900FF</PTCID>
+          <ContextId>0</ContextId>
+        </Parameter>
+      </Parameters>
+      <DataAreas>
+        <DataArea>
+          <AreaNo AreaType="Standard" CreateSymbols="true">0</AreaNo>
+          <Name>BodePlot GUI</Name>
+          <ContextId>0</ContextId>
+          <Symbol>
+            <Name>State</Name>
+            <SubItem>
+              <Name>Frequency</Name>
+              <Type>LREAL</Type>
+              <Unit TxtId="1033"><![CDATA[Hz]]></Unit>
+            </SubItem>
+            <SubItem>
+              <Name>Index</Name>
+              <Type>UDINT</Type>
+            </SubItem>
+            <SubItem>
+              <Name>reserved</Name>
+              <Type>DWORD</Type>
+              <ArrayInfo>
+                <LBound>0</LBound>
+                <Elements>5</Elements>
+              </ArrayInfo>
+            </SubItem>
+          </Symbol>
+          <Symbol>
+            <Name OversampleType="true">SetPos</Name>
+            <BaseType>LREAL</BaseType>
+            <ArrayInfo>
+              <LBound>0</LBound>
+              <Elements>64</Elements>
+            </ArrayInfo>
+            <Unit TxtId="1033"><![CDATA[e.g. mm]]></Unit>
+          </Symbol>
+          <Symbol>
+            <Name OversampleType="true">SetVelo</Name>
+            <BaseType>LREAL</BaseType>
+            <ArrayInfo>
+              <LBound>0</LBound>
+              <Elements>64</Elements>
+            </ArrayInfo>
+            <Unit TxtId="1033"><![CDATA[e.g. mm/s]]></Unit>
+          </Symbol>
+          <Symbol>
+            <Name OversampleType="true">SetTorque</Name>
+            <BaseType>LREAL</BaseType>
+            <ArrayInfo>
+              <LBound>0</LBound>
+              <Elements>64</Elements>
+            </ArrayInfo>
+            <Unit TxtId="1033"><![CDATA[e.g. mm/s²]]></Unit>
+          </Symbol>
+          <Symbol>
+            <Name OversampleType="true">ActPos</Name>
+            <BaseType>LREAL</BaseType>
+            <ArrayInfo>
+              <LBound>0</LBound>
+              <Elements>64</Elements>
+            </ArrayInfo>
+            <Unit TxtId="1033"><![CDATA[e.g. mm]]></Unit>
+          </Symbol>
+          <Symbol>
+            <Name OversampleType="true">ActVelo</Name>
+            <BaseType>LREAL</BaseType>
+            <ArrayInfo>
+              <LBound>0</LBound>
+              <Elements>64</Elements>
+            </ArrayInfo>
+            <Unit TxtId="1033"><![CDATA[e.g. mm/s]]></Unit>
+          </Symbol>
+          <Symbol>
+            <Name OversampleType="true">ActTorque</Name>
+            <BaseType>LREAL</BaseType>
+            <ArrayInfo>
+              <LBound>0</LBound>
+              <Elements>64</Elements>
+            </ArrayInfo>
+            <Unit TxtId="1033"><![CDATA[e.g. % of peak torque]]></Unit>
+          </Symbol>
+          <Symbol>
+            <Name OversampleType="true">ActAcc</Name>
+            <BaseType>LREAL</BaseType>
+            <ArrayInfo>
+              <LBound>0</LBound>
+              <Elements>64</Elements>
+            </ArrayInfo>
+            <Unit TxtId="1033"><![CDATA[e.g. m/s²]]></Unit>
+          </Symbol>
+          <Symbol>
+            <Name OversampleType="true">ActVelo2</Name>
+            <BaseType>LREAL</BaseType>
+            <ArrayInfo>
+              <LBound>0</LBound>
+              <Elements>64</Elements>
+            </ArrayInfo>
+            <Unit TxtId="1033"><![CDATA[e.g. mm/s]]></Unit>
+          </Symbol>
+        </DataArea>
+        <DataArea>
+          <AreaNo AreaType="Internal" AllowChildAreas="false">2</AreaNo>
+          <Name>DriveData (AT)</Name>
+          <ContextId>0</ContextId>
+        </DataArea>
+        <DataArea>
+          <AreaNo AreaType="Internal" AllowChildAreas="false">3</AreaNo>
+          <Name>DriveData (MDT)</Name>
+          <ContextId>0</ContextId>
+        </DataArea>
+        <DataArea>
+          <AreaNo AreaType="Standard" CreateSymbols="true">4</AreaNo>
+          <Name>WcState</Name>
+          <ContextId>0</ContextId>
+          <Symbol>
+            <Name>WcState</Name>
+            <BaseType>BIT</BaseType>
+          </Symbol>
+        </DataArea>
+        <DataArea>
+          <AreaNo AreaType="Standard" CreateSymbols="true">1</AreaNo>
+          <Name>InfoData</Name>
+          <ContextId>0</ContextId>
+          <Symbol>
+            <Name>BodePlot</Name>
+            <SubItem>
+              <Name>nExternalState</Name>
+              <Type>DINT</Type>
+            </SubItem>
+            <SubItem>
+              <Name>nCurState</Name>
+              <Type>DINT</Type>
+            </SubItem>
+            <SubItem>
+              <Name>nHrState</Name>
+              <Type>DWORD</Type>
+            </SubItem>
+            <SubItem>
+              <Name>rsvd0</Name>
+              <Type>DWORD</Type>
+            </SubItem>
+            <SubItem>
+              <Name>rsvd1</Name>
+              <Type>DWORD</Type>
+            </SubItem>
+            <SubItem>
+              <Name>rsvd2</Name>
+              <Type>DWORD</Type>
+            </SubItem>
+            <SubItem>
+              <Name>rsvd3</Name>
+              <Type>DWORD</Type>
+            </SubItem>
+            <SubItem>
+              <Name>rsvd4</Name>
+              <Type>DWORD</Type>
+            </SubItem>
+          </Symbol>
+          <Symbol>
+            <Name>EcLrwMemory </Name>
+            <SubItem>
+              <Name>nExternalState</Name>
+              <Type>DINT</Type>
+            </SubItem>
+            <SubItem>
+              <Name>nCurState</Name>
+              <Type>DINT</Type>
+            </SubItem>
+            <SubItem>
+              <Name>nHrState</Name>
+              <Type>DWORD</Type>
+            </SubItem>
+            <SubItem>
+              <Name>rsvd0</Name>
+              <Type>DWORD</Type>
+            </SubItem>
+            <SubItem>
+              <Name>rsvd1</Name>
+              <Type>DWORD</Type>
+            </SubItem>
+            <SubItem>
+              <Name>rsvd2</Name>
+              <Type>DWORD</Type>
+            </SubItem>
+            <SubItem>
+              <Name>rsvd3</Name>
+              <Type>DWORD</Type>
+            </SubItem>
+            <SubItem>
+              <Name>rsvd4</Name>
+              <Type>DWORD</Type>
+            </SubItem>
+          </Symbol>
+        </DataArea>
+        <!--
+				<DataArea>
+					<AreaNo AreaType="Standard" CreateSymbols="true">5</AreaNo>
+					<Name>Debug</Name>
+					<ContextId>0</ContextId>
+					<Symbol>
+						<Name>Delay</Name>
+						<BaseType>UDINT</BaseType>
+					</Symbol>
+					<Symbol>
+						<Name OversampleType="true">DbgSetValue</Name>
+						<BaseType>ULONG</BaseType>
+						<ArrayInfo>
+							<LBound>0</LBound>
+							<Elements>64</Elements>
+						</ArrayInfo>
+					</Symbol>
+					<Symbol>
+						<Name OversampleType="true">DbgActValue</Name>
+						<BaseType>ULONG</BaseType>
+						<ArrayInfo>
+							<LBound>0</LBound>
+							<Elements>64</Elements>
+						</ArrayInfo>
+					</Symbol>
+				</DataArea>
+				-->
+      </DataAreas>
+      <InterfacePointers>
+        <InterfacePointer>
+          <PTCID>#x03002060</PTCID>
+          <Name>CyclicCaller</Name>
+          <Type GUID="{0300001E-0000-0000-E000-000000000064}" />
+        </InterfacePointer>
+      </InterfacePointers>
+    </Module>
+  </Modules>
+  <Library>
+    <Name>TcNcObjects</Name>
+    <Version>3.1.0.4707</Version>
+  </Library>
+</TcModuleClass>
